@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Movies1">فیلم های ایرانی</string>
+    <string name="Movies2">فیلم های آمریکایی</string>
+    <string name="Movies3">سریال نمایش خانگی</string>
+    <string name="Movies4">کودک</string>
+    <string name="PodCasts">پادکست</string>
+    <string name="PodCasts1">پادکست انگلیسی</string>
+    <string name="PodCasts2">پادکست آموزشی</string>
+    <string name="News">اخبار</string>
+    <string name="Movies">فیلم و سریال</string>
+
+</resources>
