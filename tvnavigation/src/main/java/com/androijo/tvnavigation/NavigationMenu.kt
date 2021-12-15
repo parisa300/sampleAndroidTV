@@ -1,10 +1,5 @@
 package com.androijo.tvnavigation
 
-/**
- * @author Arpit Johri
- * @createdOn Saturday, 11th July, 2020
- *
- */
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
