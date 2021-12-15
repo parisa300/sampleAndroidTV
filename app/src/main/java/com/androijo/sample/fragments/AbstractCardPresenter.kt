@@ -30,7 +30,7 @@ abstract class AbstractCardPresenter<T : BaseCardView?>
         val cardView = onCreateView()
         return ViewHolder(cardView)
     }
-
+// type face for row header but not work:)
     override fun onBindViewHolder(viewHolder: ViewHolder, item: Any) {
         onBindViewHolder(item, viewHolder.view as T)
         val textView = viewHolder?.view?.findViewById<RowHeaderView>(R.id.row_header)
