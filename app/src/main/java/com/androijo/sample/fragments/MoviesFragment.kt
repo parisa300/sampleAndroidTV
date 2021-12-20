@@ -1,19 +1,16 @@
 package com.androijo.sample.fragments
 
-import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.KeyEvent
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.leanback.app.BrowseSupportFragment
-import androidx.leanback.app.RowsSupportFragment
 import androidx.leanback.widget.*
 import com.androijo.sample.R
 import com.androijo.sample.interfaces.NavigationMenuCallback
+import com.androijo.sample.presenter.CardPresenterSelector
+import com.androijo.sample.presenter.HeaderItemPresenter
+import com.androijo.sample.presenter.RowPresenterSelector
 
 
 @Suppress("DEPRECATION")
@@ -79,6 +76,12 @@ class MoviesFragment : BrowseSupportFragment() {
         // set headers background color
         brandColor = ContextCompat.getColor(requireContext(), R.color.black)
 
+        setHeaderPresenterSelector(object : PresenterSelector() {
+            override fun getPresenter(o: Any): Presenter {
+                return HeaderItemPresenter()
+            }
+        })
+
     }
     private fun createRows() {
         for (rowIndex in 1..5) {
@@ -86,9 +89,6 @@ class MoviesFragment : BrowseSupportFragment() {
         }
     }
 
-   //  val textView1 = view?.findViewById<RowHeaderView>(R.id.row_header)
-  //  val typeFace = Typeface.createFromAsset(context?.assets, "iran_yekan_bold.ttf")
-   // textView1(typeFace)
 
     fun createNewRow(rowIndex: Int): Row {
         val presenterSelector = activity?.baseContext?.let {

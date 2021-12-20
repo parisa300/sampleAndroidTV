@@ -1,9 +1,10 @@
-package com.androijo.sample.fragments
+package com.androijo.sample.presenter
 
 import androidx.leanback.widget.FocusHighlight
 import androidx.leanback.widget.ListRowPresenter
 import androidx.leanback.widget.Presenter
 import androidx.leanback.widget.PresenterSelector
+import com.androijo.sample.fragments.CardListRow
 
 class RowPresenterSelector : PresenterSelector() {
 

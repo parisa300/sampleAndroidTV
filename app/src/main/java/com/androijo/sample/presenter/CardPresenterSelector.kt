@@ -1,7 +1,6 @@
-package com.androijo.sample.fragments
+package com.androijo.sample.presenter
 
 import android.content.Context
-import android.util.Log
 import androidx.leanback.widget.Presenter
 import androidx.leanback.widget.PresenterSelector
 

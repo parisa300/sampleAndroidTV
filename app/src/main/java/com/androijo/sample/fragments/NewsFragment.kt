@@ -5,10 +5,12 @@ import android.view.KeyEvent
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.leanback.app.BrowseSupportFragment
-import androidx.leanback.app.RowsSupportFragment
 import androidx.leanback.widget.*
 import com.androijo.sample.R
 import com.androijo.sample.interfaces.NavigationMenuCallback
+import com.androijo.sample.presenter.CardPresenterSelector
+import com.androijo.sample.presenter.HeaderItemPresenter
+import com.androijo.sample.presenter.RowPresenterSelector
 
 class NewsFragment : BrowseSupportFragment() {
 
@@ -49,7 +51,7 @@ class NewsFragment : BrowseSupportFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = getString(R.string.app_name)
+
         dataList.add("1")
         dataList.add("2")
         dataList.add("3")
@@ -69,7 +71,11 @@ class NewsFragment : BrowseSupportFragment() {
         isHeadersTransitionOnBackEnabled = true
         // set headers background color
         brandColor = ContextCompat.getColor(requireContext(), R.color.black)
-
+        setHeaderPresenterSelector(object : PresenterSelector() {
+            override fun getPresenter(o: Any): Presenter {
+                return HeaderItemPresenter()
+            }
+        })
     }
     private fun createRows() {
         for(rowIndex in 1..5){
