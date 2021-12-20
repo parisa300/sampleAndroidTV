@@ -70,7 +70,7 @@ class SampleActivity : FragmentActivity(), NavigationStateListener, FragmentChan
         when (fragmentName) {
             Constants.nav_menu_movies -> {
                 moviesFragment = MoviesFragment()
-               fragmentReplacer(main_FL.id, MoviesFragment())
+               fragmentReplacer(main_FL.id, moviesFragment)
                 moviesFragment.restoreSelection()
             }
             Constants.nav_menu_news -> {

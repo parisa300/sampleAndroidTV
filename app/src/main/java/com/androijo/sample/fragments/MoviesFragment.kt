@@ -1,17 +1,23 @@
 package com.androijo.sample.fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.KeyEvent
 import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.leanback.app.BrowseSupportFragment
 import androidx.leanback.app.RowsSupportFragment
 import androidx.leanback.widget.*
 import com.androijo.sample.R
 import com.androijo.sample.interfaces.NavigationMenuCallback
 
 
-class MoviesFragment : RowsSupportFragment() {
+@Suppress("DEPRECATION")
+class MoviesFragment : BrowseSupportFragment() {
 
     private var mRowsAdapter: ArrayObjectAdapter = ArrayObjectAdapter(RowPresenterSelector())
 
@@ -62,15 +68,29 @@ class MoviesFragment : RowsSupportFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         createRows()
+        setupUIElements()
     }
 
+    private fun setupUIElements() {
+        title = getString(R.string.browse_title)
+       badgeDrawable = resources.getDrawable(R.drawable.ic_baseline_live_tv_24)
+        headersState = BrowseSupportFragment.HEADERS_ENABLED
+        isHeadersTransitionOnBackEnabled = true
+        // set headers background color
+        brandColor = ContextCompat.getColor(requireContext(), R.color.black)
+
+    }
     private fun createRows() {
         for (rowIndex in 1..5) {
             mRowsAdapter.add(createNewRow(rowIndex))
         }
     }
 
-    fun createNewRow(rowIndex: Int): Row? {
+   //  val textView1 = view?.findViewById<RowHeaderView>(R.id.row_header)
+  //  val typeFace = Typeface.createFromAsset(context?.assets, "iran_yekan_bold.ttf")
+   // textView1(typeFace)
+
+    fun createNewRow(rowIndex: Int): Row {
         val presenterSelector = activity?.baseContext?.let {
             CardPresenterSelector(it)
         }
@@ -78,9 +98,6 @@ class MoviesFragment : RowsSupportFragment() {
         for (data in dataList) {
             adapter.add(data)
         }
-
-
-
 
         when (rowIndex) {
             1 -> {
@@ -102,8 +119,7 @@ class MoviesFragment : RowsSupportFragment() {
             }
         }
         return CardListRow(HeaderItem("سایر"), adapter)
-     //   val typeFace = Typeface.createFromAsset(context?.assets, "iran_yekan_bold.ttf")
-      //  hede(getString(R.string.Movies)).setTypeface(typeFace)
+
     }
 
 

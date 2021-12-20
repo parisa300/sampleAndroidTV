@@ -18,4 +18,12 @@
     <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
         <item name="android:fontFamily">@font/iran_yekan</item>
     </style>
+
+    <style name="MyCustomRowHeaderStyle" parent="Widget.Leanback.Row.Header">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="MyCustomBrowseStyle" parent="Theme.Leanback.Browse">
+        <item name="rowHeaderStyle">@style/MyCustomRowHeaderStyle</item>
+    </style>
 </resources>

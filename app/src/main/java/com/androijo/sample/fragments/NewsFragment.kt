@@ -3,12 +3,14 @@ package com.androijo.sample.fragments
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.leanback.app.BrowseSupportFragment
 import androidx.leanback.app.RowsSupportFragment
 import androidx.leanback.widget.*
 import com.androijo.sample.R
 import com.androijo.sample.interfaces.NavigationMenuCallback
 
-class NewsFragment : RowsSupportFragment() {
+class NewsFragment : BrowseSupportFragment() {
 
     private var mRowsAdapter: ArrayObjectAdapter = ArrayObjectAdapter(RowPresenterSelector())
 
@@ -47,6 +49,7 @@ class NewsFragment : RowsSupportFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = getString(R.string.app_name)
         dataList.add("1")
         dataList.add("2")
         dataList.add("3")
@@ -57,8 +60,17 @@ class NewsFragment : RowsSupportFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         createRows()
+        setupUIElements()
     }
+    private fun setupUIElements() {
+        title = getString(R.string.browse_title)
+        badgeDrawable = resources.getDrawable(R.drawable.ic_baseline_live_tv_24)
+        headersState = BrowseSupportFragment.HEADERS_ENABLED
+        isHeadersTransitionOnBackEnabled = true
+        // set headers background color
+        brandColor = ContextCompat.getColor(requireContext(), R.color.black)
 
+    }
     private fun createRows() {
         for(rowIndex in 1..5){
             mRowsAdapter.add(createNewRow(rowIndex))
