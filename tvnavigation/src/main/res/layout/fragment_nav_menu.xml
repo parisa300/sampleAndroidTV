@@ -8,13 +8,17 @@
     android:layout_width="wrap_content"
     android:padding="15dp"
     android:layout_height="match_parent">
-<androidx.appcompat.widget.AppCompatImageButton
-    android:id="@+id/iv_search"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:srcCompat="@drawable/ic_baseline_search_24"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/iv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_circle"
+        android:padding="@dimen/dimens_5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_search_24" />
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/movies_IB"
         android:layout_width="@dimen/dimens_22dp"
@@ -29,7 +33,6 @@
         android:nextFocusLeft="@id/movies_IB"
         android:nextFocusDown="@id/podcasts_IB"
         android:tag="@string/Movies"
-        android:font="@font/iran_yekan"
         app:srcCompat="@drawable/ic_movie_unselected" />
 
 
@@ -68,9 +71,6 @@
         app:srcCompat="@drawable/ic_news_unselected" />
 
 
-
-
-
     <TextView
         android:id="@+id/news_TV"
         android:layout_width="wrap_content"
@@ -92,14 +92,12 @@
         android:layout_marginStart="@dimen/dimens_17dp"
         android:fontFamily="@font/iran_yekan_regular"
         android:text="@string/PodCasts"
-        android:font="@font/iran_yekan"
         android:textColor="#CECCD5"
         android:textSize="@dimen/dimens_20sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/podcasts_IB"
         app:layout_constraintStart_toEndOf="@id/podcasts_IB"
         app:layout_constraintTop_toTopOf="@id/podcasts_IB" />
-
 
 
     <TextView
@@ -111,7 +109,6 @@
         android:fontFamily="@font/iran_yekan_regular"
         android:textColor="#CECCD5"
         android:textSize="@dimen/dimens_20sp"
-        android:font="@font/iran_yekan"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/movies_IB"
         app:layout_constraintStart_toEndOf="@id/movies_IB"
