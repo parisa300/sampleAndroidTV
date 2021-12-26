@@ -47,6 +47,7 @@ class MoviesFragment : BrowseSupportFragment() {
                                 }
                             }
                         }
+    //   title.setVisibility(View.INVISIBLE);
                     }
                     false
                 }

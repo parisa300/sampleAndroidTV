@@ -7,8 +7,8 @@ import androidx.leanback.widget.PresenterSelector
 import com.androijo.sample.fragments.CardListRow
 
 class RowPresenterSelector : PresenterSelector() {
-
-    val customListRowPresenter = object : ListRowPresenter(FocusHighlight.ZOOM_FACTOR_LARGE, false) {
+//when focus zoom change focusehighlight==ZOOM_FACTOR_LARGE
+    val customListRowPresenter = object : ListRowPresenter(FocusHighlight.ZOOM_FACTOR_NONE, false) {
         override fun isUsingDefaultListSelectEffect() = false
         override fun isUsingDefaultShadow(): Boolean {
             return false
